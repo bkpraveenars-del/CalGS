@@ -1,0 +1,6 @@
+Trait,Min,Max,Mean,SD,Target_h2,Realised_h2,Additive_QTL,Epistatic_pairs,GxE_ratio
+Seed yield per plant (g),1.463,44.843,10.645,5.667,0.45,0.396,420,90,0.55
+Total oil content (%),40.581,62.384,50.186,2.781,0.82,0.877,140,18,0.14
+Plant height (cm),40.175,226.361,135.966,28.741,0.68,0.685,180,25,0.28
+Seed coat colour (L*),14.043,77.354,45.689,11.578,0.86,0.832,22,4,0.08
+Drought tolerance index,0.121,0.95,0.549,0.285,0.38,0.339,520,120,0.72

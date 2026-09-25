@@ -1,0 +1,21 @@
+Trait,Model,PA,PA_SE,TA,TA_SE,r_over_h
+Seed yield per plant (g),GBLUP,0.252,0.019,0.371,0.019,0.401
+Seed yield per plant (g),MLP,0.224,0.018,0.332,0.019,0.357
+Seed yield per plant (g),1D-CNN,0.178,0.029,0.246,0.026,0.283
+Seed yield per plant (g),Transformer,0.054,0.026,0.079,0.03,0.085
+Total oil content (%),GBLUP,0.339,0.022,0.344,0.028,0.362
+Total oil content (%),MLP,0.307,0.032,0.306,0.035,0.328
+Total oil content (%),1D-CNN,0.247,0.041,0.231,0.049,0.264
+Total oil content (%),Transformer,0.125,0.036,0.109,0.036,0.134
+Plant height (cm),GBLUP,0.293,0.03,0.368,0.034,0.354
+Plant height (cm),MLP,0.285,0.033,0.352,0.039,0.345
+Plant height (cm),1D-CNN,0.201,0.03,0.241,0.046,0.243
+Plant height (cm),Transformer,0.169,0.027,0.189,0.024,0.205
+Seed coat colour (L*),GBLUP,0.341,0.026,0.354,0.03,0.374
+Seed coat colour (L*),MLP,0.255,0.03,0.264,0.031,0.279
+Seed coat colour (L*),1D-CNN,0.162,0.03,0.159,0.035,0.177
+Seed coat colour (L*),Transformer,0.133,0.036,0.101,0.034,0.146
+Drought tolerance index,GBLUP,0.221,0.026,0.297,0.033,0.38
+Drought tolerance index,MLP,0.186,0.031,0.247,0.028,0.319
+Drought tolerance index,1D-CNN,0.072,0.035,0.141,0.027,0.123
+Drought tolerance index,Transformer,0.018,0.022,0.006,0.024,0.031

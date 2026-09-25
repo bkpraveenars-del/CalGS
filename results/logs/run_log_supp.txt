@@ -1,0 +1,25 @@
+loeo fold 0
+loeo fold 1
+loeo fold 2
+loeo fold 3
+loeo fold 4
+trainsize fold 0 n 80
+trainsize fold 0 n 120
+trainsize fold 0 n 160
+trainsize fold 0 n 219
+trainsize fold 1 n 80
+trainsize fold 1 n 120
+trainsize fold 1 n 160
+trainsize fold 1 n 219
+trainsize fold 2 n 80
+trainsize fold 2 n 120
+trainsize fold 2 n 160
+trainsize fold 2 n 219
+trainsize fold 3 n 80
+trainsize fold 3 n 120
+trainsize fold 3 n 160
+trainsize fold 3 n 219
+trainsize fold 4 n 80
+trainsize fold 4 n 120
+trainsize fold 4 n 160
+trainsize fold 4 n 219

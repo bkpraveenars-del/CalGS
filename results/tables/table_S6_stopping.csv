@@ -1,0 +1,5 @@
+arch,criterion,best_epoch,pa
+MLP,mse,23.72,0.219
+MLP,r,25.8,0.238
+TRF,mse,5.68,0.077
+TRF,r,23.16,0.094

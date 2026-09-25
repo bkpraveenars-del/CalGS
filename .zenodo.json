@@ -1,0 +1,12 @@
+{
+  "title": "CalGS: calibrated genomic selection with split-conformal prediction intervals (code and simulated sesame panel)",
+  "upload_type": "software",
+  "description": "Complete, seeded pipeline for the manuscript 'Calibrated genomic selection: distribution-free prediction intervals turn deep genomic prediction into a decision tool'. Simulates a sesame-like diversity panel (430 inbred accessions, founder-mosaic relatedness, five traits with pleiotropy, epistasis and G×E across six environments), fits GBLUP, MLP, 1D-CNN and a patch-based genomic transformer, evaluates native, Gaussian and split-conformal prediction intervals against known true breeding values, and regenerates every table and figure. All data are simulated.",
+  "creators": [
+    {"name": "Kumar, Praveen", "affiliation": "Agriculture University Jodhpur", "orcid": "0000-0002-7736-5986"}
+  ],
+  "license": "MIT",
+  "keywords": ["genomic selection", "conformal prediction", "prediction intervals", "uncertainty quantification", "GBLUP", "deep learning", "Sesamum indicum"],
+  "access_right": "open",
+  "version": "1.0.0"
+}

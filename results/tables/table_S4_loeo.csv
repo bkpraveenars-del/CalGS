@@ -1,0 +1,16 @@
+regime,trait,cov_conformal_90,width_conformal_90
+centred,DTI,0.492,1.836
+centred,OIL,0.884,3.02
+centred,PH,0.777,2.413
+centred,SCC,0.888,3.117
+centred,SYPP,0.625,1.598
+recal,DTI,0.901,2.996
+recal,OIL,0.916,3.361
+recal,PH,0.911,3.436
+recal,SCC,0.909,3.338
+recal,SYPP,0.893,2.75
+unseen,DTI,0.474,1.836
+unseen,OIL,0.882,3.02
+unseen,PH,0.753,2.413
+unseen,SCC,0.883,3.117
+unseen,SYPP,0.611,1.598

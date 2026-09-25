@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or dataset, please cite it as below."
+title: "CalGS: calibrated genomic selection with split-conformal prediction intervals (code and simulated sesame panel)"
+version: 1.0.0
+date-released: 2026-09-24
+license: MIT
+repository-code: "https://github.com/bkpraveenars-del/CalGS"
+authors:
+  - family-names: Kumar
+    given-names: Praveen
+    orcid: "https://orcid.org/0000-0002-7736-5986"
+    affiliation: "Department of Genetics and Plant Breeding, College of Agriculture, Agriculture University Jodhpur, India"
+keywords:
+  - genomic selection
+  - conformal prediction
+  - uncertainty quantification
+  - GBLUP
+  - deep learning
+  - Sesamum indicum

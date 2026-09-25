@@ -1,0 +1,133 @@
+MLP 0 SCC 0 0.284 40
+MLP 0 SCC 1 0.512 6
+MLP 0 SCC 2 0.309 34
+MLP 0 SCC 3 0.373 0
+MLP 0 SCC 4 0.411 31
+MLP 0 DTI 0 0.358 34
+MLP 0 DTI 1 0.033 2
+MLP 0 DTI 2 0.422 2
+MLP 0 DTI 3 0.3 39
+MLP 0 DTI 4 0.24 0
+MLP 1 SCC 0 0.367 14
+MLP 1 SCC 1 0.463 15
+MLP 1 SCC 2 0.385 55
+MLP 1 SCC 3 0.382 44
+MLP 1 SCC 4 0.389 55
+MLP 1 DTI 0 0.376 51
+MLP 1 DTI 1 0.164 0
+MLP 1 DTI 2 0.432 7
+MLP 1 DTI 3 0.335 0
+MLP 1 DTI 4 0.172 27
+MLP 2 SCC 0 0.34 10
+MLP 2 SCC 1 0.517 2
+MLP 2 SCC 2 0.328 14
+MLP 2 SCC 3 0.351 91
+MLP 2 SCC 4 0.365 23
+MLP 2 DTI 0 0.364 17
+MLP 2 DTI 1 0.071 16
+MLP 2 DTI 2 0.438 40
+MLP 2 DTI 3 0.297 45
+MLP 2 DTI 4 0.264 19
+MLP 3 SCC 0 0.262 19
+MLP 3 SCC 1 0.513 5
+MLP 3 SCC 2 0.337 29
+MLP 3 SCC 3 0.424 6
+MLP 3 SCC 4 0.379 59
+MLP 3 DTI 0 0.42 6
+MLP 3 DTI 1 -0.004 21
+MLP 3 DTI 2 0.383 14
+MLP 3 DTI 3 0.344 18
+MLP 3 DTI 4 0.324 5
+CNN 0 SCC 0 0.262 45
+CNN 0 SCC 1 0.297 34
+CNN 0 SCC 2 0.28 62
+CNN 0 SCC 3 0.299 24
+CNN 0 SCC 4 0.231 27
+CNN 0 DTI 0 0.057 17
+CNN 0 DTI 1 0.078 12
+CNN 0 DTI 2 0.171 27
+CNN 0 DTI 3 0.261 137
+CNN 0 DTI 4 0.155 50
+CNN 1 SCC 0 0.318 15
+CNN 1 SCC 1 0.365 80
+CNN 1 SCC 2 -0.008 17
+CNN 1 SCC 3 0.264 132
+CNN 1 SCC 4 0.223 79
+CNN 1 DTI 0 0.126 76
+CNN 1 DTI 1 0.036 3
+CNN 1 DTI 2 0.105 69
+CNN 1 DTI 3 0.174 42
+CNN 1 DTI 4 0.129 1
+CNN 2 SCC 0 0.274 7
+CNN 2 SCC 1 0.345 23
+CNN 2 SCC 2 0.2 108
+CNN 2 SCC 3 0.456 89
+CNN 2 SCC 4 0.112 10
+CNN 2 DTI 0 0.196 3
+CNN 2 DTI 1 0.258 2
+CNN 2 DTI 2 0.131 0
+CNN 2 DTI 3 0.069 142
+CNN 2 DTI 4 0.218 2
+CNN 3 SCC 0 0.018 0
+CNN 3 SCC 1 0.262 144
+CNN 3 SCC 2 0.137 24
+CNN 3 SCC 3 0.174 48
+CNN 3 SCC 4 0.242 115
+CNN 3 DTI 0 0.065 3
+CNN 3 DTI 1 0.069 20
+CNN 3 DTI 2 0.013 48
+CNN 3 DTI 3 0.181 16
+CNN 3 DTI 4 0.173 112
+TRF 0 SCC 0 0.11 10
+TRF 0 SCC 1 0.483 3
+TRF 0 SCC 2 -0.058 0
+TRF 0 SCC 3 0.299 35
+TRF 0 SCC 4 0.413 7
+TRF 0 DTI 0 0.431 9
+TRF 0 DTI 1 0.024 16
+TRF 0 DTI 2 0.108 0
+TRF 0 DTI 3 0.182 6
+TRF 0 DTI 4 0.251 5
+TRF 1 SCC 0 0.058 18
+TRF 1 SCC 1 0.472 2
+TRF 1 SCC 2 -0.005 7
+TRF 1 SCC 3 0.19 2
+TRF 1 SCC 4 0.392 62
+TRF 1 DTI 0 0.245 1
+TRF 1 DTI 1 0.271 83
+TRF 1 DTI 2 0.147 1
+TRF 1 DTI 3 0.147 0
+TRF 1 DTI 4 0.324 12
+TRF 2 SCC 0 0.196 12
+TRF 2 SCC 1 0.547 5
+TRF 2 SCC 2 0.003 62
+TRF 2 SCC 3 0.144 14
+TRF 2 SCC 4 0.327 3
+TRF 2 DTI 0 0.387 7
+TRF 2 DTI 1 0.232 4
+TRF 2 DTI 2 0.111 7
+TRF 2 DTI 3 0.144 10
+TRF 2 DTI 4 0.284 11
+TRF 3 SCC 0 -0.033 2
+TRF 3 SCC 1 0.317 11
+TRF 3 SCC 2 -0.033 0
+TRF 3 SCC 3 0.417 20
+TRF 3 SCC 4 0.206 14
+TRF 3 DTI 0 0.279 25
+TRF 3 DTI 1 0.055 2
+TRF 3 DTI 2 0.183 4
+TRF 3 DTI 3 0.13 0
+TRF 3 DTI 4 0.187 5
+{'MLP': {'hidden': 128, 'dropout': 0.5, 'lr': 0.001, 'wd': 0.1}, 'CNN': {'channels': 32, 'dropout': 0.5, 'lr': 0.0005, 'wd': 0.01}, 'TRF': {'d': 64, 'depth': 1, 'dropout': 0.3, 'lr': 0.0005, 'wd': 0.1}}
+Traceback (most recent call last):
+  File "/home/claude/CalGS/run_experiment.py", line 176, in <module>
+    cv()
+  File "/home/claude/CalGS/run_experiment.py", line 163, in cv
+    att[f"{t}_{rep}_{k}"] = nets[0].cls_attention(Xs[te]).mean(0)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/CalGS/models_dl.py", line 83, in cls_attention
+    self.forward(x, keep_attn=True)
+  File "/home/claude/CalGS/models_dl.py", line 73, in forward
+    t = self.embed(x.view(b, self.n_tok, self.patch))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: view() takes from 0 to 2 positional arguments but 3 were given
