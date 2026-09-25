@@ -4,7 +4,7 @@
 
 Code and simulated data for:
 
-> Kumar P. *Calibrated genomic selection: distribution-free prediction intervals turn deep genomic prediction into a decision tool.* Manuscript submitted to *Genetics Selection Evolution*.
+> Kumar P. *Calibrated genomic selection: distribution-free prediction intervals turn deep genomic prediction into a decision tool.* Manuscript submitted to Journal.
 
 ## Zenodo
 
