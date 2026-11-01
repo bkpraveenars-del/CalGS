@@ -4,6 +4,8 @@
 
 Zenodo concept DOI: [10.5281/zenodo.22962590](https://doi.org/10.5281/zenodo.22962590)
 
+Zenodo Version 2 DOI: [10.5281/zenodo.23854240](https://doi.org/10.5281/zenodo.23854240)
+
 Code and simulated data for:
 
 > Kumar P., Bharateey P. K., Swami P. *Calibrated genomic selection: split-conformal prediction intervals for deep and linear genomic prediction in simulated sesame (Sesamum indicum L.) panels.* Frontiers in Plant Science, manuscript 2021142 (revised).
