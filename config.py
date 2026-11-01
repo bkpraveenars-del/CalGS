@@ -4,12 +4,14 @@ Every stochastic step derives its random stream from MASTER_SEED, so the
 whole study (panel, phenotypes, folds, networks) is regenerated exactly.
 """
 from pathlib import Path
+import os
 
-MASTER_SEED = 20260902
+MASTER_SEED = int(os.environ.get("CALGS_SEED", 20260902))
 
 ROOT = Path(__file__).resolve().parent
-DATA = ROOT / "data"
-RESULTS = ROOT / "results"
+_TAG = os.environ.get("CALGS_TAG", "")
+DATA = ROOT / ("data" + _TAG)
+RESULTS = ROOT / ("results" + _TAG)
 FIGURES = ROOT / "figures"
 for _d in (DATA, RESULTS, FIGURES):
     _d.mkdir(exist_ok=True)
@@ -18,7 +20,7 @@ for _d in (DATA, RESULTS, FIGURES):
 CHR_LEN_MB = [25.1, 23.0, 22.4, 21.2, 20.6, 20.0, 18.3, 17.5, 16.9, 16.2, 15.3, 14.0, 13.6]  # 244.1 Mb
 MARKERS_PER_MB = 110
 FST = 0.06
-GROUP_SIZES = [178, 145, 107]          # 430 accessions
+GROUP_SIZES = [int(round(g * float(os.environ.get("CALGS_SCALE", 1)))) for g in (178, 145, 107)]          # 430 accessions
 N_FOUNDERS = 46                        # founder haplotypes per chromosome
 FOUNDERS_PER_GROUP = [19, 16, 11]
 LD_HALF_LIFE_KB = 340.0                # latent AR(1) correlation halves every 340 kb

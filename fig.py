@@ -53,34 +53,35 @@ def fig1(d, N):
     box(1, 43, 22, 8, f"{d['X'].shape[0]} inbred accessions\n{d['X'].shape[1]:,} SNPs, 13 chromosomes\nfounder-mosaic relatedness", "#DDEEF8")
     box(1, 32, 22, 8, f"5 traits, line-mean h² = {min(h2):.2f}–{max(h2):.2f}\nadditive + epistasis\n+ pleiotropy + G×E (6 env.)", "#DDEEF8")
     box(1, 21, 22, 7, "TRUE breeding values\nknown by construction", "#B7DDF4", bold=True)
-    box(26, 44, 22, 6, "GBLUP (all SNPs)\nPEV + σ²e interval", "#D2E4EF")
+    box(26, 44, 22, 6, "GBLUP (all SNPs; 4,096-SNP\ncontrol) PEV + σ²e interval", "#D2E4EF", fs=6.2)
     for i, m in enumerate(["MLP", "1D-CNN", "Genomic transformer"]):
         box(26, 35 - i * 7, 22, 5, m, "#D2E4EF")
-    ax.text(37, 17.5, f"deep models: {C.N_THIN:,} uniformly thinned SNPs\nMC dropout (25 passes) and\ndeep ensemble ({C.ENSEMBLE_SIZE} nets)",
+    ax.text(30, 17.6, f"deep models: {C.N_THIN:,} uniformly thinned SNPs; MC dropout (25 passes); deep ensemble ({C.ENSEMBLE_SIZE} nets)",
             ha="center", va="center", fontsize=6.5, style="italic", color="#444444")
     box(51, 44, 22, 6, "Native intervals\n(assume the model is correct)", "#F6E0D3")
     box(51, 31, 22, 9, "SPLIT-CONFORMAL LAYER\n20% of training held out\n"
         "q̂ = ⌈(n+1)(1−α)⌉-th |residual|", "#BDE5DA")
     box(51, 20, 22, 7, "coverage ≥ 1−α in finite samples,\nany model, no distributional\nassumption",
         "#86D1BA", bold=True, fs=5.8)
-    box(77, 43, 22, 7, "Rank on point GEBV\n(standard practice)", "#E3E3E3")
-    box(77, 31, 22, 8, "Rank on LOWER\nconformal bound\n(risk-averse)", "#F5D58F", bold=True)
-    box(77, 20, 22, 7, "Realised gain vs\nthe ORACLE (TBV)", "#FBEBCF")
-    for y in (47, 36, 29, 22):
-        pass
+    box(77, 44, 22, 6, "Rank on point GEBV\n(standard practice)", "#E3E3E3")
+    box(77, 35, 22, 6, "Rank on LOWER\nconformal bound (risk-averse)", "#F5D58F", bold=True, fs=6.2)
+    box(77, 26, 22, 6, "Three-way TRIAGE: advance /\ndiscard / re-phenotype", "#F5D58F", bold=True, fs=6.2)
+    box(77, 18.5, 22, 4.5, "Gain, top lines lost vs\nthe ORACLE (TBV)", "#FBEBCF", fs=6.2)
     arrow(24.2, 47, 25.6, 47); arrow(24.2, 36, 25.6, 37.5); arrow(24.2, 36, 25.6, 30.5); arrow(24.2, 36, 25.6, 23.5)
     arrow(48.6, 47, 50.4, 47); arrow(48.6, 37.5, 50.4, 36); arrow(48.6, 30.5, 50.4, 35); arrow(48.6, 23.5, 50.4, 34)
     arrow(62, 43.5, 62, 40.5, "#009E73"); arrow(62, 30.5, 62, 27.5, "#009E73")
-    arrow(73.6, 24, 76.4, 34, "#E69F00"); arrow(73.6, 47, 76.4, 47)
-    arrow(88, 42.5, 88, 39.5, "#999999"); arrow(88, 30.5, 88, 27.5, "#E69F00")
-    ax.add_patch(FancyBboxPatch((3, 1), 94, 13, boxstyle="round,pad=0.4,rounding_size=1.2", fc="#F4F4F4", ec="#CCCCCC"))
+    arrow(73.6, 24, 76.4, 37, "#E69F00"); arrow(73.6, 24, 76.4, 29, "#E69F00"); arrow(73.6, 47, 76.4, 47)
+    arrow(88, 25.5, 88, 23.4, "#E69F00")
+    ax.text(62, 15.4, "robustness: 5 independent panels; TBV coverage; unseen subpopulation (LOSO) and environment (LOEO); 80 to 800 training lines",
+            ha="center", va="center", fontsize=6.0, style="italic", color="#444444")
+    ax.add_patch(FancyBboxPatch((3, 1), 94, 12, boxstyle="round,pad=0.4,rounding_size=1.2", fc="#F4F4F4", ec="#CCCCCC"))
     q = ["The four questions",
-         "i.  How accurate are the models, and how close to the heritability ceiling?",
-         "ii.  Are the uncertainty statements they produce natively calibrated?",
-         "iii.  Does conformal calibration repair them, and at what cost in interval width?",
-         "iv.  Does acting on calibrated uncertainty change the selection decision?"]
-    for i, s in enumerate(q):
-        ax.text(50, 12 - i * 2.5, s, ha="center", va="center", fontsize=8 if i else 9, fontweight="bold" if i == 0 else "normal")
+         "i.  How accurate are the models, at 80 to 800 training lines, relative to the heritability ceiling?",
+         "ii.  Are their native uncertainty statements calibrated, for the phenotype and for the breeding value?",
+         "iii.  Does split-conformal calibration restore coverage, at what width, and under subpopulation or environment shift?",
+         "iv.  Can calibrated intervals improve a selection decision?"]
+    for i, s_ in enumerate(q):
+        ax.text(50, 11.2 - i * 2.4, s_, ha="center", va="center", fontsize=7.4 if i else 8.6, fontweight="bold" if i == 0 else "normal")
     save(fig, "Figure1")
 
 

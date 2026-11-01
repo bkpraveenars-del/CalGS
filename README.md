@@ -2,14 +2,11 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22962590.svg)](https://doi.org/10.5281/zenodo.22962590)
 
+Zenodo concept DOI: [10.5281/zenodo.22962590](https://doi.org/10.5281/zenodo.22962590)
+
 Code and simulated data for:
 
-> Kumar P. *Calibrated genomic selection: distribution-free prediction intervals turn deep genomic prediction into a decision tool.* Manuscript submitted to Journal.
-
-## Zenodo
-
-Concept DOI: [10.5281/zenodo.22962590](https://doi.org/10.5281/zenodo.22962590)  
-Published version: [10.5281/zenodo.22962591](https://doi.org/10.5281/zenodo.22962591)
+> Kumar P., Bharateey P. K., Swami P. *Calibrated genomic selection: split-conformal prediction intervals for deep and linear genomic prediction in simulated sesame (Sesamum indicum L.) panels.* Frontiers in Plant Science, manuscript 2021142 (revised).
 
 The pipeline simulates a sesame-like (*Sesamum indicum* L.) diversity panel with known true breeding values. It then compares GBLUP with three deep architectures (a multilayer perceptron, a one-dimensional CNN and a patch-based genomic transformer) and asks three questions: whether each model's own uncertainty statement is calibrated, whether split-conformal calibration repairs it, and whether acting on calibrated uncertainty changes selection decisions. **All data are simulated.** No accession, marker or allele corresponds to a real one.
 
@@ -31,6 +28,22 @@ bash run_all.sh                               # about 3 h on 2 CPU cores
 
 All randomness derives from `MASTER_SEED = 20260902` in `config.py`. Every number in the manuscript is written by `analyse.py` to `results/numbers.json` or to a table in `results/tables/`; none is typed by hand.
 
+## Revision experiments (v1.1.0)
+
+```bash
+python tune_ext.py MLP CNN TRF && python select_hp.py          # extended search -> best_hp_rev.json
+python run_revision.py cv loso                                   # panel 1 (seed 20260902)
+for s in 1 2 3 4; do CALGS_SEED=2026110$s CALGS_TAG=_r$s python simulate_genome.py; \
+  CALGS_SEED=2026110$s CALGS_TAG=_r$s python run_revision.py cv loso; done   # panels 2-5
+python run_revision.py loeo                                      # LOEO for the MLP
+CALGS_SEED=20261110 CALGS_SCALE=3 CALGS_TAG=_big python simulate_genome.py
+CALGS_SEED=20261110 CALGS_SCALE=3 CALGS_TAG=_big python run_revision.py bigtp
+CALGS_SEED=20261110 CALGS_SCALE=3 CALGS_TAG=_big python bigtp_gblup_preds.py
+python analyse_rev.py && python fig_rev.py && python make_additional_files.py
+```
+
+`CALGS_SEED`, `CALGS_TAG` (data/results folder suffix), `CALGS_SCALE` (panel size multiplier) and `CALGS_FOLDS` (subset of folds) are read by `config.py` / `run_revision.py`. `decision.py` implements advancement with false discovery rate control (conformal p-values, Jin and Candès 2023, with Benjamini–Hochberg). About 10 h on 2 CPU cores.
+
 ## Files
 
 | File | Content |
@@ -43,7 +56,7 @@ All randomness derives from `MASTER_SEED = 20260902` in `config.py`. Every numbe
 | `run_supp.py` | Training-population size and leave-one-environment-out experiments |
 | `analyse.py` | Tables 1–6, S2–S5 and all quoted numbers |
 | `fig.py` | Figures 1–6 |
-| `make_additional_files.py` | Additional files 1–7 for the journal (README sheet, fold-level data, formula-linked summaries) |
+| `make_additional_files.py` | Supplementary Tables S1–S12 (README sheet, fold-level data, formula-linked summaries); recalculate with LibreOffice to cache formula values |
 
 ### `data/panel.npz`
 

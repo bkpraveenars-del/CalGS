@@ -1,0 +1,35 @@
+bigtp split 0 n 100
+bigtp split 0 n 200
+bigtp split 0 n 400
+bigtp split 0 n 600
+bigtp split 0 n 800
+bigtp split 1 n 100
+bigtp split 1 n 200
+bigtp split 1 n 400
+bigtp split 1 n 600
+bigtp split 1 n 800
+loeo-mlp fold 0 SYPP
+loeo-mlp fold 0 OIL
+loeo-mlp fold 0 PH
+loeo-mlp fold 0 SCC
+loeo-mlp fold 0 DTI
+loeo-mlp fold 1 SYPP
+loeo-mlp fold 1 OIL
+loeo-mlp fold 1 PH
+loeo-mlp fold 1 SCC
+loeo-mlp fold 1 DTI
+loeo-mlp fold 2 SYPP
+loeo-mlp fold 2 OIL
+loeo-mlp fold 2 PH
+loeo-mlp fold 2 SCC
+loeo-mlp fold 2 DTI
+loeo-mlp fold 3 SYPP
+loeo-mlp fold 3 OIL
+loeo-mlp fold 3 PH
+loeo-mlp fold 3 SCC
+loeo-mlp fold 3 DTI
+loeo-mlp fold 4 SYPP
+loeo-mlp fold 4 OIL
+loeo-mlp fold 4 PH
+loeo-mlp fold 4 SCC
+loeo-mlp fold 4 DTI

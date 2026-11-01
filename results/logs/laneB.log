@@ -1,0 +1,92 @@
+[20261101] cv fold 0 SYPP 258s
+[20261101] cv fold 0 OIL 355s
+[20261101] cv fold 0 PH 216s
+[20261101] cv fold 0 SCC 331s
+[20261101] cv fold 0 DTI 244s
+[20261101] cv fold 1 SYPP 158s
+[20261101] cv fold 1 OIL 210s
+[20261101] cv fold 1 PH 223s
+[20261101] cv fold 1 SCC 191s
+[20261101] cv fold 1 DTI 245s
+[20261101] cv fold 2 SYPP 185s
+[20261101] cv fold 2 OIL 184s
+[20261101] cv fold 2 PH 243s
+[20261101] cv fold 2 SCC 262s
+[20261101] cv fold 2 DTI 230s
+[20261101] cv fold 3 SYPP 156s
+[20261101] cv fold 3 OIL 267s
+[20261101] cv fold 3 PH 220s
+[20261101] cv fold 3 SCC 287s
+[20261101] cv fold 3 DTI 217s
+[20261101] cv fold 4 SYPP 328s
+[20261101] cv fold 4 OIL 309s
+[20261101] cv fold 4 PH 313s
+[20261101] cv fold 4 SCC 221s
+[20261101] cv fold 4 DTI 217s
+[20261101] loso held-out 0 SYPP
+[20261101] loso held-out 0 OIL
+[20261101] loso held-out 0 PH
+[20261101] loso held-out 0 SCC
+[20261101] loso held-out 0 DTI
+[20261101] loso held-out 1 SYPP
+[20261101] loso held-out 1 OIL
+[20261101] loso held-out 1 PH
+[20261101] loso held-out 1 SCC
+[20261101] loso held-out 1 DTI
+[20261101] loso held-out 2 SYPP
+[20261101] loso held-out 2 OIL
+[20261101] loso held-out 2 PH
+[20261101] loso held-out 2 SCC
+[20261101] loso held-out 2 DTI
+[20261103] cv fold 0 SYPP 236s
+[20261103] cv fold 0 OIL 212s
+[20261103] cv fold 0 PH 244s
+[20261103] cv fold 0 SCC 192s
+[20261103] cv fold 0 DTI 237s
+[20261103] cv fold 1 SYPP 203s
+[20261103] cv fold 1 OIL 209s
+[20261103] cv fold 1 PH 256s
+[20261103] cv fold 1 SCC 247s
+[20261103] cv fold 1 DTI 204s
+[20261103] cv fold 2 SYPP 242s
+[20261103] cv fold 2 OIL 166s
+[20261103] cv fold 2 PH 166s
+[20261103] cv fold 2 SCC 193s
+[20261103] cv fold 2 DTI 256s
+[20261103] cv fold 3 SYPP 236s
+[20261103] cv fold 3 OIL 196s
+[20261103] cv fold 3 PH 232s
+loso already complete
+[20261103] cv fold 3 SCC 185s
+[20261103] cv fold 3 DTI 296s
+[20261103] cv fold 4 SYPP 216s
+[20261103] cv fold 4 OIL 159s
+[20261103] cv fold 4 PH 252s
+[20261103] cv fold 4 SCC 328s
+[20261103] cv fold 4 DTI 227s
+[20261103] loso held-out 0 SYPP
+[20261103] loso held-out 0 OIL
+[20261103] loso held-out 0 PH
+[20261103] loso held-out 0 SCC
+[20261103] loso held-out 0 DTI
+[20261103] loso held-out 1 SYPP
+[20261103] loso held-out 1 OIL
+[20261103] loso held-out 1 PH
+[20261103] loso held-out 1 SCC
+[20261103] loso held-out 1 DTI
+[20261103] loso held-out 2 SYPP
+[20261103] loso held-out 2 OIL
+[20261103] loso held-out 2 PH
+[20261103] loso held-out 2 SCC
+[20261103] loso held-out 2 DTI
+[20261104] cv fold 3 SYPP 157s
+[20261104] cv fold 3 OIL 237s
+[20261104] cv fold 3 PH 207s
+[20261104] cv fold 3 SCC 221s
+[20261104] cv fold 3 DTI 240s
+[20261104] cv fold 4 SYPP 215s
+[20261104] cv fold 4 OIL 204s
+[20261104] cv fold 4 PH 188s
+[20261104] cv fold 4 SCC 204s
+[20261104] cv fold 4 DTI 174s
+LANE_B_DONE

@@ -1,0 +1,19 @@
+{
+  "n_accessions": 430,
+  "n_markers_simulated": 26851,
+  "n_markers_qc": 25107,
+  "genome_mb": 244.1,
+  "mean_spacing_kb": 9.722388178595612,
+  "group_sizes": [
+    178,
+    145,
+    107
+  ],
+  "realised_h2_linemean": {
+    "SYPP": 0.3915506043377503,
+    "OIL": 0.8307407717613173,
+    "PH": 0.6832880336352208,
+    "SCC": 0.8036898031965969,
+    "DTI": 0.3156513321819751
+  }
+}

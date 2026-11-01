@@ -1,10 +1,10 @@
-"""Build the journal Additional files 1-7 (.xlsx) from the raw outputs.
+"""Build Supplementary Tables S1-S12 (.xlsx) from the raw outputs.
 
 Each workbook has a README sheet (title, description, column dictionary, provenance),
 the raw per-fold data, and, where the manuscript quotes aggregates, a Summary sheet
 whose cells are AVERAGEIFS formulas over the raw sheet so every summary value can be
 traced to the fold-level data.
-Usage:  python make_additional_files.py      -> submission/Additional_file_{1..7}.xlsx
+Usage:  python make_additional_files.py      -> submission/Supplementary_Table_S{1..11}.xlsx
 """
 import numpy as np
 import pandas as pd
@@ -20,8 +20,9 @@ F = Font(name="Arial", size=10)
 FB = Font(name="Arial", size=10, bold=True)
 FT = Font(name="Arial", size=12, bold=True)
 HEAD = PatternFill("solid", fgColor="DDEBF7")
-CITATION = ("Kumar P. Calibrated genomic selection: distribution-free prediction intervals turn deep "
-            "genomic prediction into a decision tool. Genetics Selection Evolution (submitted).")
+CITATION = ("Kumar P., Bharateey P. K., Swami P. Calibrated genomic selection: split-conformal prediction intervals "
+            "for deep and linear genomic prediction in simulated sesame panels. Frontiers in Plant Science "
+            "(manuscript 2021142, revised).")
 
 
 def readme(wb, title, description, columns, provenance):
@@ -112,18 +113,18 @@ def main():
 
     # 1 --------------------------------------------------------------
     wb = Workbook()
-    readme(wb, "Additional file 1: Table S1. Full cross-validation output",
+    readme(wb, "Supplementary Table S1. Full cross-validation output",
            "One row per trait, repeat, fold, model and uncertainty source (5 traits x 10 folds x 7 model-source "
            "combinations = 350 rows): accuracy, coverage and width of every interval construction at nominal 80%, "
            "90% and 95%, and selection outcomes. Tables 3-6 and Figures 3-5 of the article are aggregates of this sheet.",
            [("Sheet 'Table S1'", "Raw fold-level results")] + CV_COLS, PROV)
     data_sheet(wb, "Table S1", cv)
-    wb.save(OUT / "Additional_file_1.xlsx")
+    wb.save(OUT / "Supplementary_Table_S1.xlsx")
 
     # 2 --------------------------------------------------------------
     wb = Workbook()
     s2 = pd.read_csv(T / "table_S2_h2.csv")
-    readme(wb, "Additional file 2: Table S2. Realised heritabilities",
+    readme(wb, "Supplementary Table S2. Realised heritabilities",
            "Target and realised narrow-sense heritability on a line-mean basis over six environments, and realised "
            "single-environment heritability (squared correlation between true breeding value and the single-plot "
            "phenotype) in each environment.",
@@ -132,12 +133,12 @@ def main():
             ("WW/MOD/SEV-Y1/Y2", "Single-environment realised heritability: well-watered, moderate or severe terminal drought, year 1 or 2")],
            PROV)
     data_sheet(wb, "Table S2", s2, 3)
-    wb.save(OUT / "Additional_file_2.xlsx")
+    wb.save(OUT / "Supplementary_Table_S2.xlsx")
 
     # 3 --------------------------------------------------------------
     wb = Workbook()
     s3 = pd.read_csv(R / "supp_trainsize.csv")
-    readme(wb, "Additional file 3: Table S3. Training-population size experiment",
+    readme(wb, "Supplementary Table S3. Training-population size experiment",
            "GBLUP and the MLP with Monte-Carlo dropout fitted with the proper training set subsampled to 80, 120, 160 "
            "and 219 lines (validation and calibration sets fixed; first repeat, five folds, five traits).",
            [("Sheet 'Raw'", "One row per trait, fold, training size and model"),
@@ -151,12 +152,12 @@ def main():
     summary_sheet(wb, "Summary", "Raw", s3, ["model", "n_train"],
                   ["pa", "ta", "cov_native_90", "cov_conformal_90", "width_native_90", "width_conformal_90"],
                   "Means over 5 traits x 5 folds; formulas reference sheet 'Raw'.")
-    wb.save(OUT / "Additional_file_3.xlsx")
+    wb.save(OUT / "Supplementary_Table_S3.xlsx")
 
     # 4 --------------------------------------------------------------
     wb = Workbook()
     s4 = pd.read_csv(R / "supp_loeo.csv")
-    readme(wb, "Additional file 4: Table S4. Leave-one-environment-out experiment",
+    readme(wb, "Supplementary Table S4. Leave-one-environment-out experiment",
            "GBLUP fitted and calibrated on the mean of five environments and tested on single-plot phenotypes in the "
            "sixth. Regimes: unseen (calibration on five-environment means); centred (as unseen, predictions shifted by "
            "the target environment main effect); recal (calibration lines phenotyped in the target environment).",
@@ -168,12 +169,12 @@ def main():
     data_sheet(wb, "Raw", s4)
     summary_sheet(wb, "Summary", "Raw", s4, ["regime", "trait"], ["cov_conformal_90", "width_conformal_90"],
                   "Means over 5 folds x 6 held-out environments; formulas reference sheet 'Raw'.")
-    wb.save(OUT / "Additional_file_4.xlsx")
+    wb.save(OUT / "Supplementary_Table_S4.xlsx")
 
     # 5 --------------------------------------------------------------
     wb = Workbook()
     s5 = pd.read_csv(T / "table_S5_attention.csv")
-    readme(wb, "Additional file 5: Table S5. Transformer attention versus true QTL",
+    readme(wb, "Supplementary Table S5. Transformer attention versus true QTL",
            "Spearman correlation between class-token attention (last block, heads averaged, averaged over test "
            "accessions and folds) and the number of the trait's additive QTL within each of the 64 genomic patches; "
            "one-sided Mann-Whitney test of QTL enrichment in the top attention quintile. The per-patch profiles are "
@@ -188,12 +189,12 @@ def main():
         A, dens = np.load(R / f"attention_profile_{t}.npy")
         prof.append(pd.DataFrame(dict(trait=t, patch=np.arange(len(A)), attention=A, true_qtl=dens.astype(int))))
     data_sheet(wb, "Profiles", pd.concat(prof), 6)
-    wb.save(OUT / "Additional_file_5.xlsx")
+    wb.save(OUT / "Supplementary_Table_S5.xlsx")
 
     # 6 --------------------------------------------------------------
     wb = Workbook()
     s6 = pd.read_csv(R / "supp_stopping.csv")
-    readme(wb, "Additional file 6: Table S6. Early stopping on validation correlation versus validation MSE",
+    readme(wb, "Supplementary Table S6. Early stopping on validation correlation versus validation MSE",
            "MLP and transformer trained with identical seeds, stopping on validation Pearson correlation (r, the "
            "criterion used throughout) or on validation mean squared error (mse); first repeat, five folds, five traits.",
            [("Sheet 'Raw'", "One row per trait, fold, architecture and criterion"),
@@ -203,26 +204,124 @@ def main():
     data_sheet(wb, "Raw", s6)
     summary_sheet(wb, "Summary", "Raw", s6, ["arch", "criterion"], ["best_epoch", "pa"],
                   "Means over 5 traits x 5 folds; paired t-tests are reported in the article.")
-    wb.save(OUT / "Additional_file_6.xlsx")
+    wb.save(OUT / "Supplementary_Table_S6.xlsx")
 
     # 7 --------------------------------------------------------------
     wb = Workbook()
-    s7 = pd.read_csv(R / "tuning.csv")
-    readme(wb, "Additional file 7: Table S7. Hyperparameter search",
-           "Four configurations per architecture evaluated by internal-validation correlation on the two tuning traits "
+    s7 = pd.read_csv(C.ROOT / "results" / "tuning_all.csv").drop(columns=["sec"], errors="ignore")
+    readme(wb, "Supplementary Table S7. Hyperparameter search",
+           "Twelve configurations per architecture (grid 0-3: original search; grid 4-11: extended search added in revision) evaluated by internal-validation correlation on the two tuning traits "
            "(SCC, DTI; first repeat, five folds). The configuration with the highest mean was selected and held fixed "
            "for all traits. Test folds were not used.",
            [("Sheet 'Raw'", "One row per architecture, grid point, tuning trait and fold"),
-            ("arch, grid", "Architecture and grid index (0-3)"),
+            ("arch, grid", "Architecture and grid index (0-3 original, 4-11 extended)"), ("patch", "Transformer markers per patch (empty = 64)"),
             ("val_r, best_epoch", "Best internal-validation correlation and its epoch"),
             ("hidden / channels / d / depth / dropout / lr / wd", "Hyperparameters (empty where not applicable)"),
             ("Sheet 'Summary'", "AVERAGEIFS by architecture and grid point")], PROV)
     data_sheet(wb, "Raw", s7)
     summary_sheet(wb, "Summary", "Raw", s7, ["arch", "grid"], ["val_r", "best_epoch"],
-                  "Mean over 2 tuning traits x 5 folds; selected configurations are in results/best_hp.json.")
-    wb.save(OUT / "Additional_file_7.xlsx")
-    print("written:", sorted(p.name for p in OUT.glob("Additional_file_*.xlsx")))
+                  "Mean over 2 tuning traits x 5 folds; selected configurations: best_hp.json (grid 0-3) and best_hp_rev.json (grid 0-11).")
+    wb.save(OUT / "Supplementary_Table_S7.xlsx")
+    print("written:", sorted(p.name for p in OUT.glob("Supplementary_Table_S*.xlsx")))
+
+
+def revision_tables():
+    """Supplementary Tables S8-S11 (revision experiments)."""
+    T2 = C.ROOT / "results" / "tables"
+    PROV2 = PROV.replace("run_experiment.py / run_supp.py", "run_revision.py").replace("analyse.py", "analyse_rev.py") \
+        .replace("(seed 20260902)", "(panel seeds 20260902, 20261101-20261105; enlarged panel 20261110)")
+    # S8
+    wb = Workbook()
+    s8 = pd.read_csv(T2 / "rev_S8_replicates_foldlevel.csv")
+    keep = ["panel", "seed", "trait", "fold", "model", "source", "pa", "ta"] + \
+        [c for c in s8.columns if c.startswith(("cov_", "covg_", "width_", "gain_", "coin_"))] + ["oracle", "n_test"]
+    s8 = s8[[c for c in keep if c in s8.columns]]
+    readme(wb, "Supplementary Table S8. Six independent simulated panels",
+           "Panels 1-6 (seeds 20260902 and 20261101-20261105), one repeat of stratified five-fold cross-validation each, "
+           "all models and uncertainty sources, with GBLUP-thin (GBLUP on the 4,096 thinned markers), coverage of the "
+           "phenotype and of the true breeding value.",
+           [("Sheet 'Raw'", "One row per panel, trait, fold, model and uncertainty source"),
+            ("cov_<c>_<L>", "Coverage of the observed line-mean phenotype by the nominal L% interval of construction c "
+                            "(native, plugin, epi_ale, conformal, adaptive; pev_only for GBLUP)"),
+            ("covg_<c>_<L>", "Coverage of the true breeding value expressed on the phenotype scale (Eq. 14)"),
+            ("width_<c>_<L>", "Mean width in panel phenotypic SD"),
+            ("gain_*, coin_*, oracle", "As in Supplementary Table S1"),
+            ("Sheet 'Summary'", "AVERAGEIFS by panel, model and source")], PROV2)
+    data_sheet(wb, "Raw", s8)
+    summary_sheet(wb, "Summary", "Raw", s8, ["panel", "model", "source"],
+                  ["pa", "ta", "cov_native_90", "cov_conformal_90", "covg_native_90", "covg_conformal_90",
+                   "covg_pev_only_90"],
+                  "Means over 5 traits x 5 folds per panel; panel-level means are the units for the tests in the article.")
+    wb.save(OUT / "Supplementary_Table_S8.xlsx")
+    # S9
+    wb = Workbook()
+    s9 = pd.read_csv(T2 / "rev_S9_loso_foldlevel.csv")
+    readme(wb, "Supplementary Table S9. Leave-one-subpopulation-out (LOSO) calibration",
+           "In each panel each subpopulation was held out in turn. Models were fitted on the other two subpopulations and "
+           "calibrated either on 20% of the training subpopulations or on 20% of the held-out subpopulation; the other "
+           "80% of the held-out subpopulation was the test set.",
+           [("Sheet 'Raw'", "One row per panel, held-out subpopulation, trait, model, source and calibration regime"),
+            ("cov_<c>_90, width_<c>_90", "Coverage and width (phenotypic SD) of the native and split-conformal 90% intervals"),
+            ("pa", "Predictive ability in the held-out subpopulation"),
+            ("Sheet 'Summary'", "AVERAGEIFS by model, source and regime")], PROV2)
+    data_sheet(wb, "Raw", s9)
+    summary_sheet(wb, "Summary", "Raw", s9, ["model", "source", "regime"], ["pa", "cov_native_90", "cov_conformal_90", "width_conformal_90"],
+                  "Means over 6 panels x 3 held-out subpopulations x 5 traits.")
+    wb.save(OUT / "Supplementary_Table_S9.xlsx")
+    # S10
+    wb = Workbook()
+    s10 = pd.read_csv(T2 / "rev_S10_loeo_mlp_foldlevel.csv")
+    readme(wb, "Supplementary Table S10. Leave-one-environment-out experiment for the MLP",
+           "As Supplementary Table S4, for the MLP with Monte Carlo dropout (panel 1, first repeat, five folds).",
+           [("Sheet 'Raw'", "One row per trait, fold, held-out environment and calibration regime"),
+            ("regime", "unseen: calibration on 5-environment means; centred: plus target-environment main effect; "
+                       "recal: calibration lines phenotyped in the target environment"),
+            ("cov_<c>_90, width_<c>_90", "Coverage and width of native and split-conformal 90% intervals"),
+            ("Sheet 'Summary'", "AVERAGEIFS by trait and regime")], PROV2)
+    data_sheet(wb, "Raw", s10)
+    summary_sheet(wb, "Summary", "Raw", s10, ["trait", "regime"], ["cov_native_90", "cov_conformal_90", "width_conformal_90"],
+                  "Means over 5 folds x 6 held-out environments.")
+    wb.save(OUT / "Supplementary_Table_S10.xlsx")
+    # S11
+    wb = Workbook()
+    s11 = pd.read_csv(T2 / "rev_S11_bigtp_foldlevel.csv")
+    readme(wb, "Supplementary Table S11. Training populations of 100 to 800 lines (enlarged panel)",
+           "Enlarged panel of 1,290 accessions (seed 20261110). Two random splits, each with fixed test (200), calibration "
+           "(150) and validation (100) sets; proper training sets of 100, 200, 400, 600 and 800 lines.",
+           [("Sheet 'Raw'", "One row per split, trait, training size and model"),
+            ("model", "GBLUP; MLP-ENS (deep ensemble of 3); MLP-MC (Monte Carlo dropout)"),
+            ("sec", "Wall-clock seconds to fit and predict on one CPU thread (GBLUP includes building G; MLP the 3-member ensemble)"),
+            ("pa, ta", "Predictive ability and true accuracy"),
+            ("cov_<c>_90, width_<c>_90", "Coverage and width of native and split-conformal 90% intervals"),
+            ("Sheet 'Summary'", "AVERAGEIFS by model and training size")], PROV2)
+    data_sheet(wb, "Raw", s11)
+    summary_sheet(wb, "Summary", "Raw", s11, ["model", "n_train"], ["pa", "ta", "cov_native_90", "cov_conformal_90", "width_conformal_90", "sec"],
+                  "Means over 2 splits x 5 traits.")
+    wb.save(OUT / "Supplementary_Table_S11.xlsx")
+    # S12
+    wb = Workbook()
+    s12 = pd.read_csv(T2 / "rev_S12_fdr_selection_foldlevel.csv")
+    s12b = pd.read_csv(T2 / "rev_fdr_selection_big_foldlevel.csv")
+    readme(wb, "Supplementary Table S12. Advancement with false discovery rate (FDR) control",
+           "Lines were advanced if their phenotype could be declared to exceed a threshold c (the median, 75th or 90th "
+           "percentile of the standardised fitting-set phenotype) by Benjamini-Hochberg applied to conformal p-values "
+           "(Jin and Candes, 2023), to Gaussian p-values from the native or plug-in standard deviation, or by taking the "
+           "top 10% on the point prediction. Sheet 'Raw': panels 1-5; sheet 'Raw_enlarged': GBLUP in the 1,290-line "
+           "panel at training sizes 100-800.",
+           [("threshold", "q50, q75, q90: percentile of the fitting-set phenotype used as c"),
+            ("rule", "conformal_<q>, native_<q>, plugin_<q> (Benjamini-Hochberg at FDR level q), top10"),
+            ("frac_sel, n_sel", "Share and number of test lines advanced"),
+            ("fdp", "False discovery proportion: share of advanced lines with phenotype <= c (0 if none advanced)"),
+            ("power", "Share of test lines with phenotype > c that were advanced"),
+            ("gain", "Mean TBV of advanced lines minus the fold mean, in TBV SD (empty if none advanced)"),
+            ("Sheet 'Summary'", "AVERAGEIFS by entry, threshold and rule (panels 1-5)")], PROV2)
+    data_sheet(wb, "Raw", s12)
+    data_sheet(wb, "Raw_enlarged", s12b)
+    summary_sheet(wb, "Summary", "Raw", s12, ["entry", "threshold", "rule"], ["frac_sel", "fdp", "power"],
+                  "Means over panels x traits x folds; the FDR is the mean FDP.")
+    wb.save(OUT / "Supplementary_Table_S12.xlsx")
 
 
 if __name__ == "__main__":
     main()
+    revision_tables()

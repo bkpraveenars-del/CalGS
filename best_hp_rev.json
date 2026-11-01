@@ -1,0 +1,22 @@
+{
+  "MLP": {
+    "hidden": 1024,
+    "dropout": 0.5,
+    "lr": 0.0005,
+    "wd": 0.1
+  },
+  "CNN": {
+    "channels": 32,
+    "dropout": 0.3,
+    "lr": 0.001,
+    "wd": 0.1
+  },
+  "TRF": {
+    "d": 64,
+    "depth": 4,
+    "dropout": 0.1,
+    "lr": 0.0003,
+    "wd": 0.01,
+    "patch": 64
+  }
+}
