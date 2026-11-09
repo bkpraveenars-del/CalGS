@@ -1,12 +1,24 @@
 {
   "title": "CalGS: calibrated genomic selection with split-conformal prediction intervals (code and simulated sesame panel)",
   "upload_type": "software",
-  "description": "Complete, seeded pipeline for the manuscript 'Calibrated genomic selection: distribution-free prediction intervals turn deep genomic prediction into a decision tool'. Simulates a sesame-like diversity panel (430 inbred accessions, founder-mosaic relatedness, five traits with pleiotropy, epistasis and G×E across six environments), fits GBLUP, MLP, 1D-CNN and a patch-based genomic transformer, evaluates native, Gaussian and split-conformal prediction intervals against known true breeding values, and regenerates every table and figure. All data are simulated.",
+  "description": "Complete, seeded pipeline for the article 'Calibrated genomic selection: split-conformal prediction intervals for deep and linear genomic prediction in simulated sesame (Sesamum indicum L.) panels' (Frontiers in Plant Science). Simulates sesame-like diversity panels (430 inbred accessions in five independent panels, and an enlarged panel of 1,290 accessions; founder-mosaic relatedness, five traits with pleiotropy, epistasis and G×E across six environments), fits GBLUP, MLP, 1D-CNN and a patch-based genomic transformer, evaluates native, Gaussian and split-conformal prediction intervals against known true breeding values, tests advancement with false discovery rate control, and regenerates every table and figure. v1.2.0 adds the second-revision analyses (analyse_r2.py, make_supp_r2.py) and GBLUP predictions for 20 splits of the enlarged panel. All data are simulated.",
   "creators": [
-    {"name": "Kumar, Praveen", "affiliation": "Agriculture University Jodhpur", "orcid": "0000-0002-7736-5986"}
+    {
+      "name": "Kumar, Praveen",
+      "affiliation": "Agriculture University Jodhpur",
+      "orcid": "0000-0002-7736-5986"
+    }
   ],
   "license": "MIT",
-  "keywords": ["genomic selection", "conformal prediction", "prediction intervals", "uncertainty quantification", "GBLUP", "deep learning", "Sesamum indicum"],
+  "keywords": [
+    "genomic selection",
+    "conformal prediction",
+    "prediction intervals",
+    "uncertainty quantification",
+    "GBLUP",
+    "deep learning",
+    "Sesamum indicum"
+  ],
   "access_right": "open",
-  "version": "1.1.0"
+  "version": "1.2.0"
 }

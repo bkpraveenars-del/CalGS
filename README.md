@@ -6,9 +6,11 @@ Zenodo concept DOI: [10.5281/zenodo.22962590](https://doi.org/10.5281/zenodo.229
 
 Zenodo Version 2 DOI: [10.5281/zenodo.23854240](https://doi.org/10.5281/zenodo.23854240)
 
+Zenodo Version 3 DOI: [10.5281/zenodo.24079588](https://doi.org/10.5281/zenodo.24079588)
+
 Code and simulated data for:
 
-> Kumar P., Bharateey P. K., Swami P. *Calibrated genomic selection: split-conformal prediction intervals for deep and linear genomic prediction in simulated sesame (Sesamum indicum L.) panels.* Frontiers in Plant Science, manuscript 2021142 (revised).
+> Kumar P., Bharateey P. K., Swami P. *Calibrated genomic selection: split-conformal prediction intervals for deep and linear genomic prediction in simulated sesame (Sesamum indicum L.) panels.* Manuscript submitted to Journal.
 
 The pipeline simulates a sesame-like (*Sesamum indicum* L.) diversity panel with known true breeding values. It then compares GBLUP with three deep architectures (a multilayer perceptron, a one-dimensional CNN and a patch-based genomic transformer) and asks three questions: whether each model's own uncertainty statement is calibrated, whether split-conformal calibration repairs it, and whether acting on calibrated uncertainty changes selection decisions. **All data are simulated.** No accession, marker or allele corresponds to a real one.
 
@@ -76,6 +78,21 @@ python analyse_rev.py && python fig_rev.py && python make_additional_files.py
 
 Traits: `SYPP` seed yield per plant, `OIL` total oil content, `PH` plant height, `SCC` seed coat colour (L\*), `DTI` drought tolerance index.
 Environments: well-watered, moderate and severe terminal drought, each in two years.
+
+## Second-revision analyses (v1.2.0)
+
+No new deep-model fits are needed. The enlarged-panel GBLUP predictions are extended from 2 to 20 splits
+(splits 0 and 1 are unchanged), then the second-revision summaries and Supplementary Tables S12 (revised) and S13 are written:
+
+```bash
+CALGS_SEED=20261110 CALGS_SCALE=3 CALGS_TAG=_big CALGS_NSPLIT=20 python bigtp_gblup_preds.py
+python analyse_r2.py        # results/rev2_numbers.json, results/tables/rev2_*.csv
+python make_supp_r2.py      # results/tables/Supplementary_Table_S12.xlsx, _S13.xlsx
+```
+
+`analyse_r2.py` adds coverage by trait, the share of units in which the advancement rule selects any line, the false
+discovery proportion when it does, the FDR against the TBV, the mean-probability rule for Gaussian probabilities,
+results by trait, LOSO calibration sizes, LOEO interval widths, the Holm correction and the marker-number tests.
 
 ## Key design choices (see Methods)
 

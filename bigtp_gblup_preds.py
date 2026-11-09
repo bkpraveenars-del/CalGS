@@ -1,15 +1,18 @@
 """GBLUP predictions in the enlarged panel (same splits as run_revision.bigtp), saved per split, size and
-trait for the FDR-controlled selection experiment.  Usage: CALGS_SEED=20261110 CALGS_SCALE=3 CALGS_TAG=_big python bigtp_gblup_preds.py"""
+trait for the FDR-controlled selection experiment. Splits 0 and 1 are those of run_revision.bigtp; the second
+revision adds splits 2-19 (CALGS_NSPLIT=20) for GBLUP only.
+Usage: CALGS_SEED=20261110 CALGS_SCALE=3 CALGS_TAG=_big CALGS_NSPLIT=20 python bigtp_gblup_preds.py"""
+import os
 import numpy as np
 import config as C
 from models_stat import GBLUP, vanraden_G
-from run_experiment import load
-from run_revision import SIZES
+load = lambda: np.load(C.DATA / "panel.npz")   # as run_experiment.load (avoids importing torch)
+SIZES = [100, 200, 400, 600, 800]        # as run_revision.SIZES
 d = load()
 X, Y, TBV, group = d["X"].astype(float), d["Y"], d["TBV"], d["group"]
 out = C.RESULTS / "preds_big"
 out.mkdir(exist_ok=True)
-for s in range(2):
+for s in range(int(os.environ.get("CALGS_NSPLIT", 2))):
     rng = np.random.default_rng([C.MASTER_SEED, 900, s])
     idx = rng.permutation(len(group))
     te, cal, va, pool = idx[:200], idx[200:350], idx[350:450], idx[450:]
